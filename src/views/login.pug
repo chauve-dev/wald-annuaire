@@ -1,0 +1,28 @@
+extends layout
+
+block content
+    .loginPage
+        form.loginForm(action="/login", method="post")
+            h1 Login
+            .formElement
+                label(for="email") Email
+                input(type="email", name="email")
+            .formElement
+                label(for="password") Mot de passe
+                input(type="password", name="password")
+            .formElement
+                input(type="submit", value="Login")
+
+        form.loginForm(action="/register", method="post")
+            h1 Register
+            .formElement
+                label(for="email") Email
+                input(type="email", name="email")
+            .formElement
+                label(for="username") Username
+                input(type="text", name="username")
+            .formElement
+                label(for="password") Mot de passe
+                input(type="password", name="password")
+            .formElement
+                input(type="submit", value="Register")

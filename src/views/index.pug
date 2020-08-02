@@ -1,15 +1,26 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .menuButton
+    button(onclick="window.location = '/logout'") Deconnexion
+  .content
+    h1 Annuaire
+    form.loginForm(action="/addContact", method="post")
+      .formElement
+        label(for="nom") Nom
+        input(type="text", name="nom")
+      .formElement
+        label(for="prenom") Prenom
+        input(type="text", name="prenom")
+      .formElement
+        label(for="email") Email
+        input(type="email", name="email")
+      .formElement
+        label(for="telephone") Téléphone
+        input(type="text", name="telephone")
+      .formElement
+        input(type="submit", value="Ok")
+    #table
+  script(src="/js/contactManager.js")
   script.
-    var socket = io.connect();
-    socket.on('message', function(data){
-      alert(data)
-    })
-
-    socket.on('subscribe-user', (data) => {
-      console.log(data)
-    })
-
+    load()

@@ -1,7 +1,7 @@
 import { Model } from 'objection';
 import knex from '../knex'
 
-import { car } from './car.model'
+import { contact } from './contact.model'
 import { subController } from '../subController'
 
 Model.knex(knex)
@@ -9,14 +9,15 @@ Model.knex(knex)
 export class user extends Model {
     username!: string;
     email!: string;
+    password!: string;
 
     static relationMappings = {
         vehicules: {
           relation: Model.HasManyRelation,
-          modelClass: car,
+          modelClass: contact,
           join: {
             from: 'users.id',
-            to: 'cars.userId'
+            to: 'contacts.userId'
           }
         }
       };
@@ -47,7 +48,8 @@ export class user extends Model {
             properties: {
                 id: {type: 'integer'},
                 username: {type: 'string', minLength: 1, maxLength: 255},
-                email: {type: 'string', minLength: 1, maxLength: 255}
+                email: {type: 'string', minLength: 1, maxLength: 255},
+                password: {type: 'string'}
             }
         }
     }
