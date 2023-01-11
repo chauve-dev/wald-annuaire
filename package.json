@@ -18,7 +18,7 @@
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "express-sitemap": "^1.8.0",
-    "knex": "^0.21.2",
+    "knex": "^2.4.0",
     "morgan": "^1.10.0",
     "node-sass-middleware": "^0.11.0",
     "objection": "^2.2.1",
